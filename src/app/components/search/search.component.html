@@ -1,0 +1,28 @@
+<div class="search-container">
+  <div class="search-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Search a movie</mat-label>
+      <input
+        type="search"
+        [formControl]="searchTerm"
+        matInput
+        placeholder="Search a movie"
+        pattern="^[a-zA-Z0-9]*$"
+      />
+      <mat-error *ngIf="searchTerm.hasError('required')"
+        >Search Term is required.</mat-error
+      >
+      <mat-error *ngIf="searchTerm.hasError('minlength')"
+        >Search Term must have at least 3 characters.</mat-error
+      >
+      <mat-error *ngIf="searchTerm.hasError('pattern')"
+        >Search Term can only contain alphanumeric characters.</mat-error
+      >
+    </mat-form-field>
+    <div>
+      <button mat-raised-button color="primary" (click)="onSubmit($event)">
+        Search
+      </button>
+    </div>
+  </div>
+</div>
