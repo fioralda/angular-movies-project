@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MoviesService } from '../../movies.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -17,7 +18,7 @@ export class SearchComponent {
 
   movies = [];
 
-  constructor(private moviesService: MoviesService) {}
+  constructor(private moviesService: MoviesService, private router: Router) {}
 
   onSubmit(event) {
     event.preventDefault();
@@ -40,5 +41,9 @@ export class SearchComponent {
           };
         });
       });
+  }
+
+  hasRoute(route: string) {
+    return this.router.url === route;
   }
 }

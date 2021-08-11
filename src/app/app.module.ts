@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const appRoutes: Routes = [
   // { path: '', component: SearchComponent },
@@ -22,7 +23,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, SearchComponent, MovieDetailsComponent],
+  declarations: [AppComponent, SearchComponent, MovieDetailsComponent, FooterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

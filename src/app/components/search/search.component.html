@@ -1,4 +1,4 @@
-<div class="search-container">
+<div class="search-container" *ngIf="hasRoute('/')">
   <div class="search-form">
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Search a movie</mat-label>
@@ -29,7 +29,7 @@
     </div>
   </div>
 </div>
-<div *ngIf="!loading && movies.length > 0">
+<div *ngIf="!loading && movies.length > 0 && hasRoute('/')">
   <mat-grid-list cols="4" rowHeight="500px">
     <mat-grid-tile *ngFor="let movie of movies">
       <mat-card class="example-card">
