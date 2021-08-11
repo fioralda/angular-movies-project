@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { RouterModule, Routes } from '@angular/router';
 
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
     MatGridListModule,
     MatIconModule,
     MatPaginatorModule,
+    MatSnackBarModule,
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
   ],
   providers: [],

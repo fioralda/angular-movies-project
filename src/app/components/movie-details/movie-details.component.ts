@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from 'src/app/movies.service';
+import { FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-movie-details',
@@ -9,19 +11,41 @@ import { MoviesService } from 'src/app/movies.service';
 })
 export class MovieDetailsComponent implements OnInit {
   movie = null;
+  movieId = null;
   loading = true;
+  rating = new FormControl('', [
+    Validators.required,
+    Validators.min(0.5),
+    Validators.max(10),
+  ]);
   constructor(
     private route: ActivatedRoute,
-    private movieService: MoviesService
+    private movieService: MoviesService,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
-    const movieId = Number(routeParams.get('movieId'));
-    this.movieService.getMovieDetails(movieId).subscribe((data: any) => {
+    this.movieId = Number(routeParams.get('movieId'));
+    this.movieService.getMovieDetails(this.movieId).subscribe((data: any) => {
       this.movie = data;
       console.log(data);
       this.loading = false;
     });
+  }
+
+  openSnackBar() {
+    this._snackBar.open('Rating was added successful', 'X');
+  }
+
+  onSubmit(event) {
+    event.preventDefault();
+
+    if (this.rating.invalid) {
+      return;
+    }
+
+    this.movieService.addMovieRating(this.movieId, this.rating.value);
+    this.openSnackBar();
   }
 }

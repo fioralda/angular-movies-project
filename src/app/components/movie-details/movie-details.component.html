@@ -1,5 +1,25 @@
 <h2>Movies Detal Page</h2>
 <a routerLink="/">Go Back</a>
+
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>Add a rating</mat-label>
+  <input
+    type="number"
+    [formControl]="rating"
+    matInput
+    placeholder="Add a rating"
+  />
+  <mat-error *ngIf="rating.hasError('required')">Rating is required.</mat-error>
+  <mat-error *ngIf="rating.hasError('min') || rating.hasError('max')"
+    >The value is expected to be between 0.5 and 10.0</mat-error
+  >
+</mat-form-field>
+<div>
+  <button mat-raised-button color="primary" (click)="onSubmit($event)">
+    Add rating
+  </button>
+</div>
+
 <div *ngIf="loading"><mat-spinner></mat-spinner></div>
 <div *ngIf="!loading && movie != null">
   <div>Title: {{ movie.title }}</div>
