@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MoviesService } from '../../movies.service';
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -10,11 +12,33 @@ export class SearchComponent {
     Validators.required,
     Validators.minLength(3),
   ]);
+  loading = false;
+  page = 1;
 
-  constructor() {}
+  movies = [];
+
+  constructor(private moviesService: MoviesService) {}
 
   onSubmit(event) {
-    console.log('clicked!');
-    console.log(this.searchTerm.value);
+    event.preventDefault();
+
+    if (this.searchTerm.invalid) {
+      return;
+    }
+
+    this.loading = true;
+
+    this.moviesService
+      .searchMovies(this.searchTerm.value, this.page)
+      .subscribe((data: any) => {
+        this.loading = false;
+        this.movies = data.results;
+        this.movies = this.movies.map((movie: any) => {
+          return {
+            ...movie,
+            imgUrl: 'https://image.tmdb.org/t/p/original' + movie.poster_path,
+          };
+        });
+      });
   }
 }
