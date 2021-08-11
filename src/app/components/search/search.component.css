@@ -28,19 +28,14 @@
   border: 1px solid black;
 }
 
-.list-of-movies {
-  display: flex;
-  justify-content: center;
-}
-
-.movie_poster {
-  width: 200%;
-}
-
 .example-card {
   max-width: 200px;
 }
 
 .example-header-image {
   background-size: cover;
+}
+
+.vote-average-button {
+  background-color: rgb(230, 230, 7);
 }
