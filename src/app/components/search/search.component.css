@@ -39,3 +39,13 @@
 .vote-average-button {
   background-color: rgb(230, 230, 7);
 }
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: 200px;
+  height: 320px;
+}

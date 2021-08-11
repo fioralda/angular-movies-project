@@ -1,4 +1,16 @@
-<div *ngIf="hasRoute('/details')">
-  <h2>Movies Detal Page</h2>
-  <a routerLink="/">Go Back</a>
+<h2>Movies Detal Page</h2>
+<a routerLink="/">Go Back</a>
+<div *ngIf="loading"><mat-spinner></mat-spinner></div>
+<div *ngIf="!loading && movie != null">
+  <div>Title: {{ movie.title }}</div>
+  <div>Overview: {{ movie.overview }}</div>
+  <div>Poster Path: {{ movie.poster_path }}</div>
+  <div>Budget: {{ movie.budget }}</div>
+  <div>Release Date: {{ movie.release_date }}</div>
+  <div>Revenue: {{ movie.revenue }}</div>
+  <div>Vote Average: {{ movie.vote_avarage }}</div>
+  <div>Vote Count: {{ movie.vote_count }}</div>
+  <div *ngFor="let lang of movie.spoken_languages">
+    Languages: {{ lang.name }}
+  </div>
 </div>

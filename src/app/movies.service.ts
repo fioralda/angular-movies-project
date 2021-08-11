@@ -12,5 +12,8 @@ export class MoviesService {
     return this.http.get(api_url);
   }
 
-  getMovieDetails(id) {}
+  getMovieDetails(movieId) {
+    const api_url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=85204a8cc33baf447559fb6d51b18313&language=en-US`;
+    return this.http.get(api_url);
+  }
 }

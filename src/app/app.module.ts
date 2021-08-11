@@ -6,6 +6,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,11 +21,16 @@ import { FooterComponent } from './components/footer/footer.component';
 
 const appRoutes: Routes = [
   // { path: '', component: SearchComponent },
-  { path: 'details', component: MovieDetailsComponent }
+  { path: 'details/:movieId', component: MovieDetailsComponent },
 ];
 
 @NgModule({
-  declarations: [AppComponent, SearchComponent, MovieDetailsComponent, FooterComponent],
+  declarations: [
+    AppComponent,
+    SearchComponent,
+    MovieDetailsComponent,
+    FooterComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,6 +44,7 @@ const appRoutes: Routes = [
     MatCardModule,
     MatGridListModule,
     MatIconModule,
+    MatPaginatorModule,
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
   ],
   providers: [],
