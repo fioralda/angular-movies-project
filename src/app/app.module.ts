@@ -20,8 +20,8 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
 import { FooterComponent } from './components/footer/footer.component';
 
 const appRoutes: Routes = [
-  // { path: '', component: SearchComponent },
   { path: 'details/:movieId', component: MovieDetailsComponent },
+  { path: '', component: SearchComponent },
 ];
 
 @NgModule({
