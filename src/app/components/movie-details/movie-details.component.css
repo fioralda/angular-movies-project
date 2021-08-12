@@ -1,5 +1,5 @@
 /* .container {
-  background-image: ;
+  background-color: rgb(241, 241, 241);
 } */
 
 .back {
@@ -34,12 +34,10 @@
 .loading-movies {
   display: flex;
   justify-content: center;
-  
 }
 
 .example-card-details {
   max-width: 500px;
-  background: rgb(241, 241, 241);
 }
 
 .mat-card-content {
