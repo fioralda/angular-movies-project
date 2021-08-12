@@ -30,49 +30,49 @@
       Add rating
     </button>
   </div>
+  <div class="image-and-card">
+    <img
+      [src]="movieImageUrl"
+      width="400px"
+      height="550px"
+      class="movie-image-url"
+    />
 
-  <div *ngIf="loading"><mat-spinner></mat-spinner></div>
-  <div *ngIf="!loading && movie != null" class="loading-movies">
-    <mat-card class="example-card-details">
-      <mat-card-header>
-        <mat-card-title>{{ movie.title }}</mat-card-title>
-      </mat-card-header>
-      <mat-divider class="mat-divider"></mat-divider>
-      <mat-card-content class="mat-card-content">
-        <div class="detail-direction">
-          <div>
-            Overview: {{ movie.overview }}
-            <img
-              [src]="movieImageUrl"
-              width="200px"
-              height="300px"
-              class="movie-image-url"
-            />
-          </div>
-          <mat-divider class="mat-divider"></mat-divider>
-          <div>Poster Path: {{ movie.poster_path }}</div>
-          <mat-divider class="mat-divider"></mat-divider>
-          <div>Budget: {{ movie.budget }}</div>
-          <mat-divider class="mat-divider"></mat-divider>
-          <div>Release Date: {{ movie.release_date }}</div>
-          <mat-divider class="mat-divider"></mat-divider>
-          <div>Revenue: {{ movie.revenue }}</div>
-          <mat-divider class="mat-divider"></mat-divider>
-          <div>Vote Average: {{ movie.vote_average }}</div>
-          <mat-divider class="mat-divider"></mat-divider>
-          <div>Vote Count: {{ movie.vote_count }}</div>
-          <mat-divider class="mat-divider"></mat-divider>
-          <div>
-            Languages:
-            <div
-              *ngFor="let lang of movie.spoken_languages"
-              class="movie-langluage"
-            >
-              - {{ lang.name }}
+    <div *ngIf="loading"><mat-spinner></mat-spinner></div>
+    <div *ngIf="!loading && movie != null" class="loading-movies">
+      <mat-card class="example-card-details">
+        <mat-card-header>
+          <mat-card-title>{{ movie.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-divider class="mat-divider"></mat-divider>
+        <mat-card-content class="mat-card-content">
+          <div class="detail-direction">
+            <div>Overview: {{ movie.overview }}</div>
+            <mat-divider class="mat-divider"></mat-divider>
+            <div>Poster Path: {{ movie.poster_path }}</div>
+            <mat-divider class="mat-divider"></mat-divider>
+            <div>Budget: {{ movie.budget }}</div>
+            <mat-divider class="mat-divider"></mat-divider>
+            <div>Release Date: {{ movie.release_date }}</div>
+            <mat-divider class="mat-divider"></mat-divider>
+            <div>Revenue: {{ movie.revenue }}</div>
+            <mat-divider class="mat-divider"></mat-divider>
+            <div>Vote Average: {{ movie.vote_average }}</div>
+            <mat-divider class="mat-divider"></mat-divider>
+            <div>Vote Count: {{ movie.vote_count }}</div>
+            <mat-divider class="mat-divider"></mat-divider>
+            <div>
+              Languages:
+              <div
+                *ngFor="let lang of movie.spoken_languages"
+                class="movie-langluage"
+              >
+                - {{ lang.name }}
+              </div>
             </div>
           </div>
-        </div>
-      </mat-card-content>
-    </mat-card>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
 </div>

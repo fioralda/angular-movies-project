@@ -34,6 +34,8 @@
 .loading-movies {
   display: flex;
   justify-content: center;
+  padding-left: 3%;
+  padding-top: 3%;
 }
 
 .example-card-details {
@@ -58,10 +60,16 @@
 }
 
 .movie-image-url {
-  padding-top: 5%;
+  padding-top: 3%;
   padding-left: 27%;
 }
 
 /* .mat-divider {
   background-color: rgb(112, 109, 109);
 } */
+
+.image-and-card {
+  display: flex;
+  justify-content: left;
+  padding-right: 10%;
+}
