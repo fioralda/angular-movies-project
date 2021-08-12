@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from 'src/app/movies.service';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-movie-details',
@@ -18,6 +19,7 @@ export class MovieDetailsComponent implements OnInit {
     Validators.min(0.5),
     Validators.max(10),
   ]);
+  movieImageUrl;
   constructor(
     private route: ActivatedRoute,
     private movieService: MoviesService,
@@ -29,7 +31,9 @@ export class MovieDetailsComponent implements OnInit {
     this.movieId = Number(routeParams.get('movieId'));
     this.movieService.getMovieDetails(this.movieId).subscribe((data: any) => {
       this.movie = data;
-      console.log(data);
+      this.movieImageUrl = this.movie.poster_path
+        ? 'https://image.tmdb.org/t/p/original' + this.movie.poster_path
+        : 'https://via.placeholder.com/1000x1433?text=No+Image+Available';
       this.loading = false;
     });
   }

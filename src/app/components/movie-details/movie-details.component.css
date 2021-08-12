@@ -1,3 +1,7 @@
+/* .container {
+  background-image: ;
+} */
+
 .back {
   display: flex;
   padding-top: 2%;
@@ -30,11 +34,12 @@
 .loading-movies {
   display: flex;
   justify-content: center;
-  padding-top: 5%;
+  
 }
 
 .example-card-details {
   max-width: 500px;
+  background: rgb(241, 241, 241);
 }
 
 .mat-card-content {
@@ -45,3 +50,20 @@
 .detail-direction {
   padding-left: 2%;
 }
+
+.detail-direction > div {
+  padding: 2%;
+}
+
+.movie-langluage {
+  padding-left: 5%;
+}
+
+.movie-image-url {
+  padding-top: 5%;
+  padding-left: 27%;
+}
+
+/* .mat-divider {
+  background-color: rgb(112, 109, 109);
+} */
