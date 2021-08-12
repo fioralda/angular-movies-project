@@ -1,0 +1,47 @@
+.back {
+  display: flex;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.link {
+  font-size: medium;
+  font-weight: bold;
+  text-decoration: none !important;
+  padding-left: 6px;
+  padding-top: 2px;
+}
+
+.example-full-width {
+  display: flex;
+  justify-content: center;
+}
+
+.button-rating {
+  max-height: 45px;
+  margin-left: 2%;
+}
+
+.input-rating {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+}
+.loading-movies {
+  display: flex;
+  justify-content: center;
+  padding-top: 5%;
+}
+
+.example-card-details {
+  max-width: 500px;
+}
+
+.mat-card-content {
+  padding-top: 2%;
+  font-size: medium;
+}
+
+.detail-direction {
+  padding-left: 2%;
+}

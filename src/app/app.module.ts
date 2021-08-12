@@ -8,6 +8,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { RouterModule, Routes } from '@angular/router';
 
@@ -18,7 +19,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
-import { FooterComponent } from './components/footer/footer.component';
 
 const appRoutes: Routes = [
   { path: 'details/:movieId', component: MovieDetailsComponent },
@@ -26,12 +26,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SearchComponent,
-    MovieDetailsComponent,
-    FooterComponent,
-  ],
+  declarations: [AppComponent, SearchComponent, MovieDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -47,6 +42,7 @@ const appRoutes: Routes = [
     MatIconModule,
     MatPaginatorModule,
     MatSnackBarModule,
+    MatDividerModule,
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
   ],
   providers: [],

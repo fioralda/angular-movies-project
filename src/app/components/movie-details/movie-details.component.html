@@ -1,28 +1,38 @@
-<h2>Movies Detal Page</h2>
-<a routerLink="/">Go Back</a>
-
-<mat-form-field class="example-full-width" appearance="fill">
-  <mat-label>Add a rating</mat-label>
-  <input
-    type="number"
-    [formControl]="rating"
-    matInput
-    placeholder="Add a rating"
-  />
-  <mat-error *ngIf="rating.hasError('required')">Rating is required.</mat-error>
-  <mat-error *ngIf="rating.hasError('min') || rating.hasError('max')"
-    >The value is expected to be between 0.5 and 10.0</mat-error
+<div class="back">
+  <a routerLink="/"></a>
+  <mat-icon>keyboard_backspace</mat-icon>
+  <a routerLink="/" class="link">Go Back</a>
+</div>
+<div class="input-rating">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label class="mat-label">Add a rating</mat-label>
+    <input
+      class="input-rating"
+      type="number"
+      [formControl]="rating"
+      matInput
+      placeholder="Add a rating"
+    />
+    <mat-error *ngIf="rating.hasError('required')"
+      >Rating is required.</mat-error
+    >
+    <mat-error *ngIf="rating.hasError('min') || rating.hasError('max')"
+      >The value is expected to be between 0.5 and 10.0</mat-error
+    >
+  </mat-form-field>
+  <button
+    class="button-rating"
+    mat-raised-button
+    color="primary"
+    (click)="onSubmit($event)"
   >
-</mat-form-field>
-<div>
-  <button mat-raised-button color="primary" (click)="onSubmit($event)">
     Add rating
   </button>
 </div>
 
 <div *ngIf="loading"><mat-spinner></mat-spinner></div>
-<div *ngIf="!loading && movie != null">
-  <div>Title: {{ movie.title }}</div>
+<div *ngIf="!loading && movie != null" class="loading-movies">
+  <!-- <div>Title: {{ movie.title }}</div>
   <div>Overview: {{ movie.overview }}</div>
   <div>Poster Path: {{ movie.poster_path }}</div>
   <div>Budget: {{ movie.budget }}</div>
@@ -30,7 +40,38 @@
   <div>Revenue: {{ movie.revenue }}</div>
   <div>Vote Average: {{ movie.vote_avarage }}</div>
   <div>Vote Count: {{ movie.vote_count }}</div>
+  <div>Languages:</div>
   <div *ngFor="let lang of movie.spoken_languages">
-    Languages: {{ lang.name }}
-  </div>
+    {{ lang.name }}
+  </div> -->
+
+  <mat-card class="example-card-details">
+    <mat-card-header>
+      <mat-card-title>{{ movie.title }}</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content class="mat-card-content">
+      <div class="detail-direction">
+        <div>Overview: {{ movie.overview }}</div>
+        <mat-divider></mat-divider>
+        <div>Poster Path: {{ movie.poster_path }}</div>
+        <mat-divider></mat-divider>
+        <div>Budget: {{ movie.budget }}</div>
+        <mat-divider></mat-divider>
+        <div>Release Date: {{ movie.release_date }}</div>
+        <mat-divider></mat-divider>
+        <div>Revenue: {{ movie.revenue }}</div>
+        <mat-divider></mat-divider>
+        <div>Vote Average: {{ movie.vote_average }}</div>
+        <mat-divider></mat-divider>
+        <div>Vote Count: {{ movie.vote_count }}</div>
+        <mat-divider></mat-divider>
+        <div>Languages:</div>
+        <mat-divider></mat-divider>
+        <div *ngFor="let lang of movie.spoken_languages">
+          {{ lang.name }}
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>
