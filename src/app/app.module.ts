@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { RouterModule, Routes } from '@angular/router';
 
@@ -19,14 +20,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
-
+import { MovieCollectionsComponent } from './components/movie-collections/movie-collections.component';
 const appRoutes: Routes = [
   { path: 'details/:movieId', component: MovieDetailsComponent },
+  { path: 'collections', component: MovieCollectionsComponent },
   { path: '', component: SearchComponent },
 ];
 
 @NgModule({
-  declarations: [AppComponent, SearchComponent, MovieDetailsComponent],
+  declarations: [
+    AppComponent,
+    SearchComponent,
+    MovieDetailsComponent,
+    MovieCollectionsComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -43,6 +50,7 @@ const appRoutes: Routes = [
     MatPaginatorModule,
     MatSnackBarModule,
     MatDividerModule,
+    MatMenuModule,
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
   ],
   providers: [],

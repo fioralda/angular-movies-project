@@ -3,7 +3,6 @@
   width: 100%;
   display: flex;
   justify-content: center;
-
 }
 
 .search-form {
@@ -50,4 +49,10 @@
 img {
   width: 200px;
   height: 300px;
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

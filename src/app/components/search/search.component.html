@@ -46,7 +46,16 @@
     <mat-grid-tile *ngFor="let movie of movies">
       <mat-card class="example-card">
         <mat-card-header>
-          <mat-card-title>{{ movie.title }}</mat-card-title>
+          <mat-card-title class="card-title">
+            <div>
+              {{ movie.title }}
+            </div>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>library_add</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" *ngFor="let col of collections">
+            </mat-menu>
+          </mat-card-title>
         </mat-card-header>
         <img mat-card-image [src]="movie.imgUrl" width="200px" height="300px" />
         <mat-card-actions>

@@ -23,6 +23,8 @@ export class SearchComponent {
   totalPages = 0;
   totalResults = 0;
 
+  collections = JSON.parse(localStorage.getItem('collections'));
+
   constructor(private moviesService: MoviesService, private router: Router) {}
 
   onSubmit(event) {

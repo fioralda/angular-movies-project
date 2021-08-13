@@ -1,0 +1,38 @@
+<div>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Title</mat-label>
+    <input type="text" [formControl]="title" matInput placeholder="Title" />
+    <mat-error *ngIf="title.hasError('required')">Title is required.</mat-error>
+    <mat-error *ngIf="title.hasError('minlength')"
+      >Title must have at least 3 characters.</mat-error
+    >
+  </mat-form-field>
+</div>
+<div>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Description</mat-label>
+    <input
+      type="text"
+      [formControl]="description"
+      matInput
+      placeholder="Description"
+    />
+    <mat-error *ngIf="description.hasError('required')"
+      >Description is required.</mat-error
+    >
+    <mat-error *ngIf="description.hasError('minlength')"
+      >Description must have at least 3 characters.</mat-error
+    >
+  </mat-form-field>
+</div>
+<div>
+  <button mat-raised-button color="primary" (click)="onSubmit($event)">
+    Create
+  </button>
+</div>
+<div *ngFor="let collection of collections">
+  {{ collection.title }}
+  <button mat-icon-button (click)="onDelete($event, collection)">
+    <mat-icon>clear</mat-icon>
+  </button>
+</div>
