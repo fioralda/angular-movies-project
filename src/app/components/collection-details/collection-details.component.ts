@@ -23,4 +23,21 @@ export class CollectionDetailsComponent implements OnInit {
       }
     });
   }
+
+  onDelete(movie) {
+    let collections = JSON.parse(localStorage.getItem('collections'));
+    collections = collections.map((collection) => {
+      if (collection.title === this.collectionTitle) {
+        for (let i = 0; i < collection.movies.length; i++) {
+          if (collection.movies[i].id == movie.id) {
+            collection.movies.splice(i, 1);
+            break;
+          }
+        }
+        this.collection = collection;
+      }
+      return collection;
+    });
+    localStorage.setItem('collections', JSON.stringify(collections));
+  }
 }

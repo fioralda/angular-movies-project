@@ -7,6 +7,9 @@
           <mat-card-title class="card-title">
             <div>
               {{ movie.title }}
+              <button mat-icon-button (click)="onDelete(movie)">
+                <mat-icon>clear</mat-icon>
+              </button>
             </div>
           </mat-card-title>
         </mat-card-header>
