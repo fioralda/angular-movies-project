@@ -1,0 +1,18 @@
+.title {
+  padding-top: 5%;
+  display: flex;
+  justify-content: center;
+  font-size: xx-large;
+  font-weight: lighter;
+  padding-bottom: 5%;
+}
+
+.example-card {
+  max-width: 200px;
+  padding-left: 10%;
+}
+
+img {
+  width: 200px;
+  height: 300px;
+}

@@ -37,10 +37,6 @@
   background-size: cover;
 }
 
-.vote-average-button {
-  background-color: rgb(230, 230, 7);
-}
-
 .loading-spinner {
   display: flex;
   justify-content: center;

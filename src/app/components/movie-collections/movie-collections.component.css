@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  max-height: 500px;
+}
+
+.example-form {
+  min-width: 250px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.form-input {
+  padding-top: 7%;
+  /* padding-left: 5%; */
+  padding-right: 6%;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10%;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.input-title {
+  display: flex;
+  justify-content: center;
+}
+
+.input-description {
+  display: flex;
+  justify-content: center;
+}
+.create-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.show-collections {
+  display: flex;
+  justify-content: center;
+  padding-top: 3%;
+}
+.your-collections {
+  display: flex;
+  justify-content: center;
+  font-size: larger;
+  font-weight: bold;
+  padding-bottom: 5%;
+}
+
+.collections-area {
+  padding-top: 10%;
+  padding-left: 5%;
+}

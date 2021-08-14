@@ -50,5 +50,6 @@ export class MovieDetailsComponent implements OnInit {
 
     this.movieService.addMovieRating(this.movieId, this.rating.value);
     this.openSnackBar();
+    this.rating.setValue('');
   }
 }

@@ -1,40 +1,59 @@
-<div>
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Title</mat-label>
-    <input type="text" [formControl]="title" matInput placeholder="Title" />
-    <mat-error *ngIf="title.hasError('required')">Title is required.</mat-error>
-    <mat-error *ngIf="title.hasError('minlength')"
-      >Title must have at least 3 characters.</mat-error
-    >
-  </mat-form-field>
-</div>
-<div>
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Description</mat-label>
-    <input
-      type="text"
-      [formControl]="description"
-      matInput
-      placeholder="Description"
-    />
-    <mat-error *ngIf="description.hasError('required')"
-      >Description is required.</mat-error
-    >
-    <mat-error *ngIf="description.hasError('minlength')"
-      >Description must have at least 3 characters.</mat-error
-    >
-  </mat-form-field>
-</div>
-<div>
-  <button mat-raised-button color="primary" (click)="onSubmit($event)">
-    Create
-  </button>
-</div>
-<div *ngFor="let collection of collections">
-  <button mat-button [routerLink]="['/collections', collection.title]">
-    {{ collection.title }}
-  </button>
-  <button mat-icon-button (click)="onDelete($event, collection)">
-    <mat-icon>clear</mat-icon>
-  </button>
+<div class="container">
+  <div class="form-input">
+    <mat-card class="example-card example-form">
+      <div class="title">Create a new collection</div>
+      <div class="input-title">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Title</mat-label>
+          <input
+            type="text"
+            [formControl]="title"
+            matInput
+            placeholder="Title"
+          />
+          <mat-error *ngIf="title.hasError('required')"
+            >Title is required.</mat-error
+          >
+          <mat-error *ngIf="title.hasError('minlength')"
+            >Title must have at least 3 characters.</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="input-description">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Description</mat-label>
+          <input
+            type="text"
+            [formControl]="description"
+            matInput
+            placeholder="Description"
+          />
+          <mat-error *ngIf="description.hasError('required')"
+            >Description is required.</mat-error
+          >
+          <mat-error *ngIf="description.hasError('minlength')"
+            >Description must have at least 3 characters.</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="create-btn">
+        <button mat-raised-button color="primary" (click)="onSubmit($event)">
+          Create
+        </button>
+      </div>
+    </mat-card>
+  </div>
+  <div class="collections-area">
+    <mat-card class="example-card-show example-card example-form">
+      <div class="your-collections">Your Collections</div>
+      <div *ngFor="let collection of collections" class="show-collections">
+        <button mat-button [routerLink]="['/collections', collection.title]">
+          {{ collection.title }}
+        </button>
+        <button mat-icon-button (click)="onDelete($event, collection)">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </div>
+    </mat-card>
+  </div>
 </div>
