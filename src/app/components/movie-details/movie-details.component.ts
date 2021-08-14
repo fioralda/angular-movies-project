@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from 'src/app/movies.service';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-movie-details',

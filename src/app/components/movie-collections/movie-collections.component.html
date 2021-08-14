@@ -31,7 +31,9 @@
   </button>
 </div>
 <div *ngFor="let collection of collections">
-  {{ collection.title }}
+  <button mat-button [routerLink]="['/collections', collection.title]">
+    {{ collection.title }}
+  </button>
   <button mat-icon-button (click)="onDelete($event, collection)">
     <mat-icon>clear</mat-icon>
   </button>

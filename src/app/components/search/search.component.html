@@ -53,7 +53,17 @@
             <button mat-icon-button [matMenuTriggerFor]="menu">
               <mat-icon>library_add</mat-icon>
             </button>
-            <mat-menu #menu="matMenu" *ngFor="let col of collections">
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item disabled *ngIf="collections.length == 0">
+                No available collections
+              </button>
+              <button
+                mat-menu-item
+                *ngFor="let coll of collections"
+                (click)="onMovieAdd($event, movie)"
+              >
+                {{ coll.title }}
+              </button>
             </mat-menu>
           </mat-card-title>
         </mat-card-header>

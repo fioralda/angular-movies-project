@@ -29,11 +29,19 @@ export class MovieCollectionsComponent implements OnInit {
     if (collections == null) {
       collections = [];
     }
-
-    collections.push({
-      title: this.title.value,
-      description: this.description.value,
+    let found = false;
+    collections.forEach((collection) => {
+      if (collection.title === this.title.value) {
+        found = true;
+      }
     });
+    if (!found) {
+      collections.push({
+        title: this.title.value,
+        description: this.description.value,
+        movies: [],
+      });
+    }
     this.collections = collections;
 
     localStorage.setItem('collections', JSON.stringify(collections));

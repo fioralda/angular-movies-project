@@ -21,9 +21,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { MovieCollectionsComponent } from './components/movie-collections/movie-collections.component';
+import { CollectionDetailsComponent } from './components/collection-details/collection-details.component';
+
 const appRoutes: Routes = [
   { path: 'details/:movieId', component: MovieDetailsComponent },
   { path: 'collections', component: MovieCollectionsComponent },
+  {
+    path: 'collections/:collectionTitle',
+    component: CollectionDetailsComponent,
+  },
   { path: '', component: SearchComponent },
 ];
 
@@ -33,6 +39,7 @@ const appRoutes: Routes = [
     SearchComponent,
     MovieDetailsComponent,
     MovieCollectionsComponent,
+    CollectionDetailsComponent,
   ],
   imports: [
     BrowserModule,

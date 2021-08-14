@@ -68,4 +68,26 @@ export class SearchComponent {
         this.totalResults = data.total_results;
       });
   }
+
+  onMovieAdd(event, movie) {
+    const collectionTitle = event.target.innerText;
+    let collections = JSON.parse(localStorage.getItem('collections'));
+
+    collections = collections.map((coll) => {
+      if (coll.title === collectionTitle) {
+        let found = false;
+        coll.movies.forEach((mov) => {
+          if (mov.id === movie.id) {
+            found = true;
+          }
+        });
+        if (!found) {
+          coll.movies.push(movie);
+        }
+      }
+      return coll;
+    });
+
+    localStorage.setItem('collections', JSON.stringify(collections));
+  }
 }
