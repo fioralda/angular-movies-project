@@ -1,38 +1,31 @@
 <div class="title">{{ collectionTitle }}</div>
-<div class="container">
-  <div *ngIf="this.collection.movies.length > 0">
-    <mat-grid-list cols="4" rowHeight="500px">
-      <mat-grid-tile *ngFor="let movie of this.collection.movies">
-        <mat-card class="example-card">
-          <mat-card-header>
-            <mat-card-title class="card-title">
-              <div>
-                {{ movie.title }}
-                <button mat-icon-button (click)="onDelete(movie)">
-                  <mat-icon>clear</mat-icon>
-                </button>
-              </div>
-            </mat-card-title>
-          </mat-card-header>
-          <img
-            mat-card-image
-            [src]="movie.imgUrl"
-            width="200px"
-            height="300px"
-          />
-          <mat-card-actions>
-            <button mat-button [routerLink]="['/details', movie.id]">
-              View details
-            </button>
-            <button mat-button class="vote-average-button" disabled>
-              <mat-icon aria-hidden="false" aria-label="Example star icon"
-                >star</mat-icon
-              >
-              {{ movie.vote_average }}
-            </button>
-          </mat-card-actions>
-        </mat-card>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </div>
+<div *ngIf="this.collection.movies.length > 0">
+  <mat-grid-list cols="4" rowHeight="500px">
+    <mat-grid-tile *ngFor="let movie of this.collection.movies">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title class="card-title">
+            <div>
+              {{ movie.title }}
+              <button mat-icon-button (click)="onDelete(movie)">
+                <mat-icon>clear</mat-icon>
+              </button>
+            </div>
+          </mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="movie.imgUrl" width="200px" height="300px" />
+        <mat-card-actions>
+          <button mat-button [routerLink]="['/details', movie.id]">
+            View details
+          </button>
+          <button mat-button class="vote-average-button" disabled>
+            <mat-icon aria-hidden="false" aria-label="Example star icon"
+              >star</mat-icon
+            >
+            {{ movie.vote_average }}
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

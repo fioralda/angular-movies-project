@@ -17,7 +17,6 @@
 
 .form-input {
   padding-top: 7%;
-  /* padding-left: 5%; */
   padding-right: 6%;
 }
 
@@ -46,7 +45,6 @@
 .show-collections {
   display: flex;
   justify-content: center;
-  padding-top: 3%;
 }
 .your-collections {
   display: flex;

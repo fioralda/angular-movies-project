@@ -18,7 +18,6 @@ export class MovieCollectionsComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(event) {
-    console.log(event);
     event.preventDefault();
 
     if (this.title.invalid || this.description.invalid) {
