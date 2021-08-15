@@ -1,7 +1,7 @@
 <div class="title">{{ collectionTitle }}</div>
-<div *ngIf="this.collection.movies.length > 0">
+<div *ngIf="this.collection!.movies.length > 0">
   <mat-grid-list cols="4" rowHeight="500px">
-    <mat-grid-tile *ngFor="let movie of this.collection.movies">
+    <mat-grid-tile *ngFor="let movie of this.collection!.movies">
       <mat-card class="example-card">
         <mat-card-header>
           <mat-card-title class="card-title">

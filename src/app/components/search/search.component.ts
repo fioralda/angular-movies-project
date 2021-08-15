@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MoviesService } from '../../movies.service';
-import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
+import { Collection, Movie } from 'src/app/types';
 
 @Component({
   selector: 'app-search',
@@ -10,24 +10,24 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./search.component.css'],
 })
 export class SearchComponent {
-  searchTerm = new FormControl('', [
+  searchTerm: FormControl = new FormControl('', [
     Validators.required,
     Validators.minLength(3),
   ]);
-  movies = [];
+  movies: Movie[] = [];
 
-  loading = false;
-  page = 1;
-  keyword = '';
-  pageSize = 0;
-  totalPages = 0;
-  totalResults = 0;
+  loading: boolean = false;
+  page: number = 1;
+  keyword: string = '';
+  pageSize: number = 0;
+  totalPages: number = 0;
+  totalResults: number = 0;
 
-  collections = JSON.parse(localStorage.getItem('collections'));
+  collections = JSON.parse(localStorage.getItem('collections') || '[]');
 
-  constructor(private moviesService: MoviesService, private router: Router) {}
+  constructor(private moviesService: MoviesService) {}
 
-  onSubmit(event) {
+  onSubmit(event: Event) {
     event.preventDefault();
 
     if (this.searchTerm.invalid) {
@@ -55,7 +55,7 @@ export class SearchComponent {
       .subscribe((data: any) => {
         this.loading = false;
         this.movies = data.results;
-        this.movies = this.movies.map((movie: any) => {
+        this.movies = this.movies.map((movie: Movie) => {
           return {
             ...movie,
             imgUrl: movie.poster_path
@@ -69,14 +69,16 @@ export class SearchComponent {
       });
   }
 
-  onMovieAdd(event, movie) {
-    const collectionTitle = event.target.innerText;
-    let collections = JSON.parse(localStorage.getItem('collections'));
+  onMovieAdd(event: MouseEvent, movie: Movie) {
+    const input = event.target as HTMLElement;
+    const collectionTitle = input.innerText;
 
-    collections = collections.map((coll) => {
+    let collections = JSON.parse(localStorage.getItem('collections') || '[]');
+
+    collections = collections.map((coll: Collection) => {
       if (coll.title === collectionTitle) {
         let found = false;
-        coll.movies.forEach((mov) => {
+        coll.movies.forEach((mov: Movie) => {
           if (mov.id === movie.id) {
             found = true;
           }

@@ -1,30 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+
+import { Collection } from '../../types';
+
 @Component({
   selector: 'app-movie-collections',
   templateUrl: './movie-collections.component.html',
   styleUrls: ['./movie-collections.component.css'],
 })
 export class MovieCollectionsComponent implements OnInit {
-  title = new FormControl('', [Validators.required, Validators.minLength(3)]);
-  description = new FormControl('', [
+  title: FormControl = new FormControl('', [
     Validators.required,
     Validators.minLength(3),
   ]);
-  collections = JSON.parse(localStorage.getItem('collections'));
+  description: FormControl = new FormControl('', [
+    Validators.required,
+    Validators.minLength(3),
+  ]);
+  collections: Collection[] = JSON.parse(
+    localStorage.getItem('collections') || '[]'
+  );
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  onSubmit(event) {
+  onSubmit(event: Event) {
     event.preventDefault();
 
     if (this.title.invalid || this.description.invalid) {
       return;
     }
 
-    let collections = JSON.parse(localStorage.getItem('collections'));
+    let collections: Collection[] = JSON.parse(
+      localStorage.getItem('collections') || '[]'
+    );
     if (collections == null) {
       collections = [];
     }
@@ -46,10 +56,10 @@ export class MovieCollectionsComponent implements OnInit {
     localStorage.setItem('collections', JSON.stringify(collections));
   }
 
-  onDelete(event, collection) {
+  onDelete(event: Event, collection: Collection) {
     event.preventDefault();
 
-    let collections = JSON.parse(localStorage.getItem('collections'));
+    let collections = JSON.parse(localStorage.getItem('collections') || '[]');
 
     for (let i = 0; i < collections.length; i++) {
       if (
